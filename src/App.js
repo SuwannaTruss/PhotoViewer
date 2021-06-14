@@ -7,8 +7,7 @@ function App() {
   return (
     <div>
       <h1 className="title">React Photo Viewer</h1>
-      {/* <PhotoViewer /> */}
-      <PhotoViewer setSelectedImage={url => setSelectedImage(url)} selectedImage={selectedImage}/>
+      <PhotoViewer setSelectedImage={setSelectedImage} selectedImage={selectedImage}/>
     </div>
   );
 }

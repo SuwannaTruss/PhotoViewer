@@ -1,8 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import {PhotoViewer} from './PhotoViewer/PhotoViewer';
+import renderer from 'react-test-renderer';
 
-test('renders learn react link', () => {
+test('should display header', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const header = screen.getByText(/React Photo Viewer/i);
+  expect(header).toBeInTheDocument();
 });
+
+test('should show images', () => {
+  const selectedImage = "any string will do.com";
+  const setSelectedImage = () => {};
+  render(<PhotoViewer setSelectedImage={setSelectedImage} selectedImage={selectedImage}/>);
+  const element = screen.getByTestId('selected_image');
+  expect(element).toBeInTheDocument();
+});
+
+
