@@ -3,15 +3,19 @@ import React, { useState } from "react";  // import React (to provide access to 
 export function PhotoViewer() {
     const urls = getImageUrls();
     const [selectedImage, setSelectedImage] = useState("")
-    const images = urls.map((url,k) => <img key={k} className="image" src={url} onClick={() => setSelectedImage(url)}/>);
+    const images = urls.map((url, k) => <img key={k} className="thumbnail-image" src={url} onClick={() => setSelectedImage(url)} />);
 
     return (
         <div className="image-container">
-            {(!selectedImage) ? <p>no image selected</p>
-                : <img key="selectedImage" className="image" src={selectedImage}/>
-            }
-            {images}
-           
+            <div className="selected-image">
+                {(!selectedImage) ? <p>no image selected</p>
+                    : <img key="selectedImage" className="image" src={selectedImage} />
+                }
+                <h3>Select your photo</h3>
+            </div>
+            <div className="thumbnail-container">
+                {images}
+            </div>
         </div>
     );
 }

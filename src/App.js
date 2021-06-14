@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <h1>React Photo Viewer</h1>
+      <h1 className="title">React Photo Viewer</h1>
       <PhotoViewer />
     </div>
   );
