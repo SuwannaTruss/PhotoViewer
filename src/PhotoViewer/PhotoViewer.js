@@ -1,8 +1,8 @@
 import React, { useState } from "react";  // import React (to provide access to JSX)
 
-export function PhotoViewer() {
+export function PhotoViewer({setSelectedImage, selectedImage}) {
     const urls = getImageUrls();
-    const [selectedImage, setSelectedImage] = useState("")
+    // const [selectedImage, setSelectedImage] = useState("")
     const images = urls.map((url, k) => <img key={k} className="thumbnail-image" src={url} onClick={() => setSelectedImage(url)} />);
 
     return (
