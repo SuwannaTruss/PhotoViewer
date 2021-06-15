@@ -2,7 +2,7 @@ import React, { useState } from "react";  // import React (to provide access to 
 
 export function PhotoViewer({setSelectedImage, selectedImage}) {
     const urls = getImageUrls();
-    const images = urls.map((url, k) => <img key={k} className="thumbnail-image" src={url} onClick={() => setSelectedImage(url)} />);
+    const images = urls.map((url, k) => <img key={k} className="thumbnail-image" data-testid="image" src={url} onClick={() => setSelectedImage(url)} />);
 
     return (
         <div className="image-container">
@@ -23,9 +23,7 @@ function getImageUrls() {
     const brokenImages = [
         1, 24, 32, 36, 44, 47
     ];
-
     const urls = [];
-
     for (let i = 0; i < 50; i++) {
         if (!brokenImages.includes(i)) {
             const imageNumberString = i.toString().padStart(2, '0');
@@ -34,4 +32,3 @@ function getImageUrls() {
     }
     return urls;
 }
-
